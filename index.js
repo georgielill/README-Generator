@@ -49,25 +49,33 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'questions',
+    name: 'gitHubUsername',
     message: 'What is your GitHub username?'
   },
   {
     type: 'input',
-    name: 'questions',
+    name: 'emailAddress',
     message: 'What is your email address?'
   }
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  const {title, description, installation, usage, license, contributions, gitHubUsername, emailAddress} = answers; 
+  const {title, description, installation, usage, license, contributions, githubUsername, emailAddress} = answers; 
+
+  const content = `# ${title}\n\n` +
+  `## Description\n\n${description}\n\n` +
+  `## Installation\n\n${installation}\n\n` +
+  `## Usage\n\n${usage}\n\n` +
+  `## License\n\n${license}\n\n` +
+  `## Contributions\n\n${contributions}\n\n` +
+  `## Questions\n\nGitHub Username: ${githubUsername}\nEmail Address: ${emailAddress}\n`;
 
   fs.writeFile("README.md", content, (err) => {
     if (err) {
-      console.log('error');
+      console.log('Error:');
     }
     else {
-      console.log('responses saved!');
+      console.log('README.md successfully created!');
     }
   })
 })
