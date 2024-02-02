@@ -12,9 +12,9 @@ const generateMarkdown = require("./utils/generateMarkdown");
 // - Installation /
 // - Usage /
 // - License /
-// - Contributing
-// - Tests
-// - Questions
+// - Contributing / 
+// - Tests - N/A
+// - Questions / 
 const questions = [
   {
     type: 'input',
@@ -28,12 +28,12 @@ const questions = [
   },
   {
     type: 'input', 
-    message: 'Enter installation instructions',
+    message: 'Enter installation instructions:',
     name: 'installation'
   },
   {
     type: 'input',
-    message: 'Enter usage instructions',
+    message: 'Enter usage instructions:',
     name: 'usage'
   },
   {
@@ -45,13 +45,13 @@ const questions = [
   {
     type: 'input',
     name: 'contributions',
-    message: 'Enter contribution guidelines',
+    message: 'Enter contribution guidelines:',
   },
   {
     type: 'input',
     name: 'questions',
     message: 'What is your GitHub username?'
-  }
+  },
   {
     type: 'input',
     name: 'questions',
@@ -59,9 +59,22 @@ const questions = [
   }
 ];
 
+inquirer.prompt(questions).then((answers) => {
+  const content = JSON.stringify(answers, null, 2);
+
+  fs.writeFile("README.md", content, (err) => {
+    if (err) {
+      console.log('error');
+    }
+    else {
+      console.log('responses saved!');
+    }
+  })
+})
+
 // function to write README file
-function writeToFile(fileName, data) {
-}
+// function writeToFile(fileName, data) {
+// }
 
 // function to initialize program
 function init() {
@@ -70,3 +83,4 @@ function init() {
 
 // function call to initialize program
 init();
+
