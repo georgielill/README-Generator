@@ -60,7 +60,7 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  const content = JSON.stringify(answers, null, 2);
+  const {title, description, installation, usage, license, contributions, gitHubUsername, emailAddress} = answers; 
 
   fs.writeFile("README.md", content, (err) => {
     if (err) {
