@@ -62,13 +62,25 @@ const questions = [
 inquirer.prompt(questions).then((answers) => {
   const {title, description, installation, usage, license, contributions, githubUsername, emailAddress} = answers; 
 
-  const content = `# ${title}\n\n` +
-  `## Description\n\n${description}\n\n` +
-  `## Installation\n\n${installation}\n\n` +
-  `## Usage\n\n${usage}\n\n` +
-  `## License\n\n${license}\n\n` +
-  `## Contributions\n\n${contributions}\n\n` +
-  `## Questions\n\nGitHub Username: ${githubUsername}\nEmail Address: ${emailAddress}\n`;
+   // Generate the content for README.md
+   let content = `# ${title}\n\n`;
+
+   // Add Table of Contents
+   content += '## Table of Contents\n\n';
+   content += `- [Description](#description)\n`;
+   content += `- [Installation](#installation)\n`;
+   content += `- [Usage](#usage)\n`;
+   content += `- [License](#license)\n`;
+   content += `- [Contributions](#contributions)\n`;
+   content += `- [Questions](#questions)\n\n`;
+ 
+   // Add Sections
+   content += `## Description\n\n${description}\n\n`;
+   content += `## Installation\n\n${installation}\n\n`;
+   content += `## Usage\n\n${usage}\n\n`;
+   content += `## License\n\n${license}\n\n`;
+   content += `## Contributions\n\n${contributions}\n\n`;
+   content += `## Questions\n\nGitHub Username: ${githubUsername}\nEmail Address: ${emailAddress}\n`;
 
   fs.writeFile("README.md", content, (err) => {
     if (err) {
