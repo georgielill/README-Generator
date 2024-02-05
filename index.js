@@ -40,11 +40,11 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'What license did you use?',
-    choices: ['MIT License', 'The Unlicense', 'Apache License 2.0'],
+    choices: ['MIT', 'The Unlicense', 'Apache License 2.0'],
   },
   {
     type: 'input',
-    name: 'contributions',
+    name: 'contributing',
     message: 'Enter contribution guidelines:',
   },
   {
@@ -59,13 +59,30 @@ const questions = [
   }
 ];
 
-
+function getLicenseBadge (license) {
+  if (license === 'MIT') {
+    return 'https://img.shields.io/badge/License-MIT-yellow.svg';
+  } else if (license === 'The Unlicense') {
+    return 'https://img.shields.io/badge/license-Unlicense-blue.svg';
+  } else if (license === 'Apache License 2.0') {
+    return 'https://img.shields.io/badge/License-Apache%202.0-blue.svg';
+  } else {
+    return '';
+  }
+}
 
 inquirer.prompt(questions).then((answers) => {
-  const {title, description, installation, usage, license, contributions, gitHubUsername, emailAddress} = answers; 
+  const {title, description, installation, usage, license, contributing, gitHubUsername, emailAddress} = answers; 
+
+  const badgeURL = getLicenseBadge(license);
 
    // Generate the content for README.md
    let content = `# ${title}\n\n`;
+
+    // Add license badge image
+  if (badgeURL) {
+    content += `![License](${badgeURL})\n\n`;
+  }
 
    // Add Table of Contents
    content += '## Table of Contents\n\n';
@@ -73,7 +90,8 @@ inquirer.prompt(questions).then((answers) => {
    content += `- [Installation](#installation)\n`;
    content += `- [Usage](#usage)\n`;
    content += `- [License](#license)\n`;
-   content += `- [Contributions](#contributions)\n`;
+   content += `- [Contributing](#contributing)\n`;
+   content += `- [Tests](#tests)\n`;
    content += `- [Questions](#questions)\n\n`;
  
    // Add Sections
@@ -81,11 +99,12 @@ inquirer.prompt(questions).then((answers) => {
    content += `## Installation\n\n${installation}\n\n`;
    content += `## Usage\n\n${usage}\n\n`;
    content += `## License\n\n${license}\n\n`;
-   content += `## Contributions\n\n${contributions}\n\n`;
-   content += `## Questions\n\nGitHub Username: (https://github.com/${gitHubUsername})\nEmail Address: ${emailAddress}\n`;
+   content += `## Contributing\n\n${contributing}\n\n`;
+   content += `## Tests\n\nN/A\n\n`;
+   content += `## Questions\n\nIf you have any questions please contact me on GitHub or via email using the links below:\n\nGitHub Username: https://github.com/${gitHubUsername}\nEmail Address: ${emailAddress}\n`;
 
   fs.writeFile("README.md", content, (err) => {
-    if (err) {
+    if (err) {ß
       console.log('Error:');
     }
     else {
