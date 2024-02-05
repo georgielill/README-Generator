@@ -23,7 +23,7 @@ const questions = [
   },
   {
     type:'input',
-    message:'Enter a description of your project',
+    message:'Enter a description of your project:',
     name: 'description',
   },
   {
@@ -59,8 +59,10 @@ const questions = [
   }
 ];
 
+
+
 inquirer.prompt(questions).then((answers) => {
-  const {title, description, installation, usage, license, contributions, githubUsername, emailAddress} = answers; 
+  const {title, description, installation, usage, license, contributions, gitHubUsername, emailAddress} = answers; 
 
    // Generate the content for README.md
    let content = `# ${title}\n\n`;
@@ -80,7 +82,7 @@ inquirer.prompt(questions).then((answers) => {
    content += `## Usage\n\n${usage}\n\n`;
    content += `## License\n\n${license}\n\n`;
    content += `## Contributions\n\n${contributions}\n\n`;
-   content += `## Questions\n\nGitHub Username: ${githubUsername}\nEmail Address: ${emailAddress}\n`;
+   content += `## Questions\n\nGitHub Username: (https://github.com/${gitHubUsername})\nEmail Address: ${emailAddress}\n`;
 
   fs.writeFile("README.md", content, (err) => {
     if (err) {
