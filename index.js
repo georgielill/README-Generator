@@ -3,18 +3,7 @@ const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// array of questions for user
-
-// - The title of my project
-// - Sections entitled: / 
-// - Description / 
-// - Table of Contents / 
-// - Installation /
-// - Usage /
-// - License /
-// - Contributing / 
-// - Tests - N/A
-// - Questions / 
+// array of questions for user 
 const questions = [
   {
     type: 'input',

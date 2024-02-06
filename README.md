@@ -1,4 +1,4 @@
-# test
+# Hello World!
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -14,7 +14,7 @@
 
 ## Description
 
-test
+this project is about la lalala
 
 ## Installation
 
@@ -38,7 +38,7 @@ N/A
 
 ## Questions
 
-If you have any questions please contact me on Github or via email using the links below
+If you have any questions please contact me on GitHub or via email using the links below:
 
 GitHub Username: https://github.com/georgielill
-Email Address: georgie@
+Email Address: georgielills@gmail.com
