@@ -29,7 +29,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'What license did you use?',
-    choices: ['MIT', 'The Unlicense', 'Apache License 2.0'],
+    choices: ['MIT License', 'The Unlicense', 'Apache License 2.0'],
   },
   {
     type: 'input',
@@ -49,7 +49,7 @@ const questions = [
 ];
 
 function getLicenseBadge (license) {
-  if (license === 'MIT') {
+  if (license === 'MIT License') {
     return 'https://img.shields.io/badge/License-MIT-yellow.svg';
   } else if (license === 'The Unlicense') {
     return 'https://img.shields.io/badge/license-Unlicense-blue.svg';
@@ -87,7 +87,7 @@ inquirer.prompt(questions).then((answers) => {
    content += `## Description\n\n${description}\n\n`;
    content += `## Installation\n\n${installation}\n\n`;
    content += `## Usage\n\n${usage}\n\n`;
-   content += `## License\n\n${license}\n\n`;
+   content += `## License\n\nThis project is licensed under the ${license}\n\n`;
    content += `## Contributing\n\n${contributing}\n\n`;
    content += `## Tests\n\nN/A\n\n`;
    content += `## Questions\n\nIf you have any questions please contact me on GitHub or via email using the links below:\n\nGitHub Username: https://github.com/${gitHubUsername}\nEmail Address: ${emailAddress}\n`;

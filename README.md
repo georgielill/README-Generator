@@ -1,4 +1,4 @@
-# Hello World!
+# Project README Generator
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -14,23 +14,23 @@
 
 ## Description
 
-this project is about la lalala
+The Project README Generator is a command-line tool that generates a README.md file for your project based on user input. It prompts the user with a series of questions about their project, such as the title, description, installation instructions, usage instructions, license, contribution guidelines, GitHub username, and email address.
 
 ## Installation
 
-test
+Clone down the repo to your local 
 
 ## Usage
 
-test
+Use the project to create a README.md file in your terminal by running node index.js
 
 ## License
 
-MIT
+This project is licensed under the MIT License
 
 ## Contributing
 
-test
+Contributions are welcome!
 
 ## Tests
 
