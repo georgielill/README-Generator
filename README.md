@@ -18,7 +18,7 @@ The Project README Generator is a command-line tool that generates a README.md f
 
 ## Installation
 
-Clone down the repo to your local 
+Clone down the repo to your local
 
 ## Usage
 
@@ -42,3 +42,7 @@ If you have any questions please contact me on GitHub or via email using the lin
 
 GitHub Username: https://github.com/georgielill
 Email Address: georgielills@gmail.com
+
+## Video Link
+
+https://www.loom.com/share/5d5dd9db569f476ca40eb7d26f5ead8f?sid=a7f6867d-41b5-4fc5-ad03-aa52fe261681
